@@ -8,20 +8,22 @@ const initialState = {
 
 export const reducer = (state = initialState, { type, payload })=>{
     switch (type) {
-        case data.SIGNUP_REQUEST: {
+        case data.LOGIN_REQUEST: {
             return {
                 ...state,
                 isLoading:true
             }
         }
-        case data.SIGNUP_SUCCESS: {
-            localStorage.setItem("isAuth",JSON.stringify(true))
+        case data.LOGIN_SUCCESS: {
+            localStorage.setItem("isAuth", JSON.stringify(true))
+            localStorage.setItem("token", payload)
             return {
                 ...state,
-                isAuth:true
+                isLoading: false,
+                isAuth:true 
             }
         }
-        case data.SIGNUP_FAILURE: {
+        case data.LOGIN_FAILURE: {
             return {
                 ...state,
                 isError: true,
