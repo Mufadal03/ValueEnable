@@ -32,6 +32,7 @@ export const reducer = (state = initialState, { type, payload })=>{
         }
         case data.LOGOUT_REQUEST: {
             localStorage.removeItem("isAuth")
+            localStorage.removeItem("token")
             return {
                 ...state,
                 isAuth: false

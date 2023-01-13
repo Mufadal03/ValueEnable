@@ -25,3 +25,7 @@ export const LogIn = (creds) => dispatch => {
             console.log(e)
     })
 }
+
+export const LogOut = () => dispatch=>{
+    dispatch({type:data.LOGOUT_REQUEST})
+}
