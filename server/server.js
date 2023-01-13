@@ -2,7 +2,9 @@ const express = require("express")
 const { connection } = require("./config/db")
 const { RegisterationController } = require("./routes/register.routes")
 const app = express() 
-app.use(express.json())   
+const cors = require("cors")
+app.use(express.json())  
+app.use(cors()) 
 
 
 app.get("/", (req,res) => {
