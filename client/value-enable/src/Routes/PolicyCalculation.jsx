@@ -2,6 +2,8 @@ import React from 'react'
 import {Box, Button, Flex, Heading, Input, Select, Text, useToast} from "@chakra-ui/react"
 import { useState } from 'react'
 import { Validate } from '../CalcFns/validate'
+import { CreatePolicy } from '../redux/authRedux/actions'
+import { Link } from 'react-router-dom'
 const PolicyCalculation = () => {
   const toast = useToast()
   const [disable,setDisable] = useState(true)
@@ -34,7 +36,8 @@ const PolicyCalculation = () => {
           status: 'success',
           duration: 3000,
           isClosable: true,
-        })
+      })
+      CreatePolicy(policy)
     } else {
       const message = Validate(policy)
       toast({
@@ -87,7 +90,7 @@ const PolicyCalculation = () => {
         </Flex>
         
         <Button colorScheme={"green"} onClick={handleSubmit}>Calculate Policy</Button>
-        <Button colorScheme={"pink"} disabled={disable} >Show Illustration</Button>
+        <Link to="/Illustration"><Button colorScheme={"pink"} disabled={disable} >Show Illustration</Button></Link>
       </Flex>
     </Box>
   )
