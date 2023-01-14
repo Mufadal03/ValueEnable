@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Req from '../PrivateRoute/Req'
+import History from './History'
 import Home from './Home'
 import Illustration from './Illustration'
 import Login from './Login'
@@ -14,7 +15,8 @@ const AllRoutes = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/policy-calculation" element={<Req><PolicyCalculation /></Req>} />
-            <Route path='/Illustration' element={<Illustration />} />
+            <Route path='/Illustration' element={<Req><Illustration /></Req>} />
+            <Route path="/history" element={<Req><History /></Req>} />
        </Routes>
   )
 }
