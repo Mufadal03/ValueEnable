@@ -2,6 +2,8 @@ const { Router } = require("express")
 const bcrypt = require("bcrypt")
 const { UserModel } = require("../models/user.model")
 const jwt = require("jsonwebtoken")
+const AlreadyRegistered = require("../middleware/AlreadyExist")
+const { PasswordChecker } = require("../middleware/passwordChecker")
 require("dotenv").config()
 RegisterationController = Router()
 
@@ -21,10 +23,10 @@ RegisterationController.post("/login", async(req, res) => {
             res.status(400).send({response:"LOGIN FAILED"})             //ERROR IF WRONG CREDS
         }
     })
-})
+}) 
 
 // SIGNUP ROUTE
-RegisterationController.post("/signup", (req, res) => {
+RegisterationController.post("/signup",AlreadyRegistered,PasswordChecker, (req, res) => {
     const { email, name, password } = req.body
     bcrypt.hash(password, 5, async (err, hash) => {  // HASHING PASSWORD TO SECURE PERSONAL INFORMATION
             const user = UserModel({ email, name, password: hash })

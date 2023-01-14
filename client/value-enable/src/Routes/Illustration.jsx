@@ -67,7 +67,7 @@ const Illustration = () => {
                                 </Tr>
                                 
                             )
-                        }):null}
+                        }):"YOU HAVE 0 POLICIES CALCULATE POLICY TO SEE CHANGES"}
                     </Tbody>
                 </Table>
         </TableContainer>

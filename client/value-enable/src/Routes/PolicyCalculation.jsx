@@ -91,6 +91,7 @@ const PolicyCalculation = () => {
         
         <Button colorScheme={"green"} onClick={handleSubmit}>Calculate Policy</Button>
         <Link to="/Illustration"><Button colorScheme={"pink"} disabled={disable} >Show Illustration</Button></Link>
+        <Text fontFamily={"cursive"} fontStyle="italic">Calculate Policy to open Illustration button</Text>
       </Flex>
     </Box>
   )

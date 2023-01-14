@@ -20,7 +20,10 @@ export const Validate = (data) => {
 
     // 6th check age 23 to 56 only 
     let age = CalcAge(new Date(DOB))
-    if (+age < 23 || +age > 56) return `You are not eligible your age is ${age}.It should be between 23 to 56`
+    if (age == 23) {
+        
+    }
+    else if (+age < 23 || +age > 56) return `You are not eligible your age is ${age}.It should be between 23 to 56`
     
     // 7th sum assured caping the sum to 1lakh to 5lakh
     // becoz max premium can be paid is 50k and the max ppt is 10 so if we 50*10 max we can pay is 5lakhs and minimum can be paid 1lakh ---> min premium 10k so if we max it to match ppt 10k*10 --->1lakh
