@@ -7,13 +7,13 @@ const { PolicyController } = require("./routes/policy.routes")
 const { Authentication } = require("./middleware/authenticate")
 app.use(express.json())  
 app.use(cors()) 
- 
+const PORT = 4000
 app.get("/", (req,res) => {
     res.send("homepage")
 })
 app.use("/user", RegisterationController)
 app.use("/policy",Authentication,PolicyController)
-app.listen(4000, async () => {
+app.listen(PORT, async () => {
     try {
         await connection
         console.log("Running on the port")
