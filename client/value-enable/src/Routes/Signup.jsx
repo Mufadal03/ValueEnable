@@ -31,9 +31,12 @@ const Signup = () => {
     const { name, email, password } = userData
     if (name == '' || email == "" || password == "") return
     dispatch(signUp(userData)).then((r) => {
+      console.log("from Signup",r)
       if (r.type == SIGNUP_SUCCESS) {
-        navigate("/login")
+        // navigate("/login")
       }
+    }).catch((e) => {
+      console.log(e)
     })
   }
 
