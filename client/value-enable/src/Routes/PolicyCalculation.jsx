@@ -23,9 +23,18 @@ const PolicyCalculation = () => {
   }
   const handleSubmit = () => {
     console.log(policy)
-    const res = Validate(policy)
+    const res = Validate(policy)  
     if (res===true) {
+      setDisable(false)
       console.log("PASSED ALL VALIDATION")
+      toast({
+        title: 'Calculation Succeed.',
+        position:"top",
+          description: "Now you click on Illustration button to get Illustration",
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        })
     } else {
       const message = Validate(policy)
       toast({
