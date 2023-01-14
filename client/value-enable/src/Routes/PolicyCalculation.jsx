@@ -54,7 +54,7 @@ const PolicyCalculation = () => {
     <Box>
       <Heading fontFamily={"cursive"} fontWeight="md" >Calculate your policy with Value Enable's Calculator</Heading>
 
-      <Flex direction={"column"} gap="1rem" border={"2px solid red"} w='700px' m="3rem auto" p='2rem'>
+      <Flex direction={"column"} gap="1rem" border={"1px solid rgba(1,1,1,0.5)"} w='700px' m="3rem auto" p='2rem'>
         <Flex alignItems="center"gap='1rem' borderBottom={"1px dashed rgba(1,1,1,0.5)"} pb="0.5rem">
             <label htmlFor='date'>Select Date Of Birth</label>
           <Input type="date"name="DOB" onChange={handleChange} id='date' max={'2023-01-31'} w="fit-content" />
