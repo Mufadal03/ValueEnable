@@ -33,7 +33,7 @@ const Signup = () => {
     dispatch(signUp(userData)).then((r) => {
       console.log("from Signup",r)
       if (r.type == SIGNUP_SUCCESS) {
-        // navigate("/login")
+        navigate("/login")
       }
     }).catch((e) => {
       console.log(e)
