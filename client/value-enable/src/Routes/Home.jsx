@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <Box>
             <Navbar />
-            <Text>Backend Deployment Error please try to run server on local host</Text>
+            <Text>Backend Deployment Error please try to run server on local host just clone then cd server then npm start</Text>
       </Box>
   )
 }
