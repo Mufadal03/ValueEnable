@@ -31,7 +31,7 @@ const Login = () => {
     dispatch(LogIn(user)).then((r) => {
       console.log(r)
       if (r.type == LOGIN_SUCCESS) {
-        navigate(comingFrom,{replace:true})
+        navigate(comingFrom?comingFrom:"/",{replace:true})
       }
     })
   }
