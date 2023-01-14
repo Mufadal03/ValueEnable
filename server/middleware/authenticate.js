@@ -4,7 +4,7 @@ require("dotenv").config();
 const Authentication = (req, res, next) => {
   if (!req.headers.authorization) return res.send({ response: "Please Login" });
   const token = req.headers.authorization.split(" ")[1];
-  jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => {
+  jwt.verify(token, VALUE_ENABLE, async (err, decoded) => {
     if (err) return res.send({ response: "Please Login!!" });
     else {
       const { userId, userEmail } = decoded;
