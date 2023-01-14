@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { Box, Button, Flex, Image, Input, Text } from "@chakra-ui/react"
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import { useState } from 'react'
 import {useDispatch} from "react-redux"
 import { signUp } from '../redux/authRedux/actions'
+import { SIGNUP_SUCCESS } from '../redux/authRedux/actionTypes'
 const Signup = () => {
   const [disable, setDisable] = useState(true)
+  const navigate = useNavigate()
   const [userData, setUserData] = useState({
     email: "",
     name: "",
@@ -28,7 +30,11 @@ const Signup = () => {
   const handleSubmit = () => {
     const { name, email, password } = userData
     if (name == '' || email == "" || password == "") return
-    dispatch(signUp(userData))
+    dispatch(signUp(userData)).then((r) => {
+      if (r.type == SIGNUP_SUCCESS) {
+        navigate("/login")
+      }
+    })
   }
 
   
