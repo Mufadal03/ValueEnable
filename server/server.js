@@ -7,7 +7,7 @@ const { PolicyController } = require("./routes/policy.routes")
 const { Authentication } = require("./middleware/authenticate")
 app.use(express.json())  
 app.use(cors()) 
-
+ 
 app.get("/", (req,res) => {
     res.send("homepage")
 })
