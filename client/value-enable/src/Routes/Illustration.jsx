@@ -1,7 +1,8 @@
-import { Box, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import { Box, Button, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import AvatarCard from '../components/AvatarCard'
 // import myAxios from '../myAxios'
 import axios from "../myAxios"
@@ -9,6 +10,7 @@ import axios from "../myAxios"
 const Illustration = () => {
     const [policy, setPolicies] = useState()
     const [latest, setLatest] = useState()
+    const navigate= useNavigate()
     let bm =[]
     useEffect(() => {
      getPolicies()   
@@ -30,9 +32,12 @@ const Illustration = () => {
         return arr.reduce((acc,el)=>acc+el,0)
     }
     return (
-        <Box w="80%" m="3rem auto" border={"1px solid rgba(1,1,1,0.5)"}>
-            {/* <AvatarCard /> */}
-            <TableContainer>
+        <Box w="80%" m="1rem auto" >
+            <Button onClick={()=>navigate("/")} w="100%" colorScheme={"pink"} mb='1rem'>Home</Button>
+            {latest ? <AvatarCard {...latest} /> : null}
+            {policy?.length > 1 ? <Link to="/history" ><Text fontFamily={"cursive"} fontStyle={'italic'} my='.5rem'>Show Prev {policy.length-1} Calculation</Text></Link> : null}
+             <Text my='1rem' fontFamily={"cursive"} fontStyle="italic">Refer Below Table for your policy reference</Text>
+            <TableContainer border={"1px solid rgba(1,1,1,0.5)"}>
                 <Table variant={'striped'} >
                     <Thead>
                         <Tr>
