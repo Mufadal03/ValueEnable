@@ -4,7 +4,7 @@ import * as data from "./actionTypes"
 
 export const signUp = (payload) => dispatch => {
     dispatch({ type: data.SIGNUP_REQUEST })
-    axios.post("/user/signup", payload).then((r) => {
+    return axios.post("/user/signup", payload).then((r) => {
         console.log(r.data)
         return dispatch({type:data.SIGNUP_SUCCESS})
     }).catch((e) => {
