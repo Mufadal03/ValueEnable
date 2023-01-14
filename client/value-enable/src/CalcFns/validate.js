@@ -25,8 +25,9 @@ export const Validate = (data) => {
     if (+age < 23 || +age > 56) return `You are not eligible your age is ${age}.It should be between 23 to 56`
     
 
-    // 7th sum assured
-    if (+sum_assured < 1000000 || +sum_assured > 5000000) return "Sum Assured should be between 10Lacs to 50Lacs"
+    // 7th sum assured caping the sum to 1lakh to 5lakh
+    // becoz max premium can be paid is 50k and the max ppt is 10 so if we 50*10 max we can pay is 5lakhs and minimum can be paid 1lakh ---> min premium 10k so if we max it to match ppt 10k*10 --->1lakh
+    if (+sum_assured < 100000 || +sum_assured > 500000) return "Sum Assured should be between 1Lac to 5Lacs"
     
     return true 
 }
