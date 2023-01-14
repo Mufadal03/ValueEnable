@@ -27,9 +27,7 @@ const Login = () => {
   const handleSubmit = () => {
     const { name, email } = user
     if (name == '' || email == "" ) return
-    console.log(user)
     dispatch(LogIn(user)).then((r) => {
-      console.log(r)
       if (r.type == LOGIN_SUCCESS) {
         navigate(comingFrom?comingFrom:"/",{replace:true})
       }
